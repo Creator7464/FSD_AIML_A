@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTiiiF-8">
+    <meta name="viewpoirt" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="para1"></p>
+    <script>
+        async function get_data(username)
+        {
+            const url = `https://dummyjson.com/${username}`;
+            const res = await fetch(url);
+            const data = await res.json();
+            document.getElementById("para1").innerHTML = "hello " +`<span style = "color: red">${data.users[0].firstName}</span>`;
+            
+        }
+        get_data("user");
+    </script>
+</body>
+
+</html>
