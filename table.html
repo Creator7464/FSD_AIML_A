@@ -16,24 +16,30 @@
             </tr>
         </thead>
         <tbody>
-            
         </tbody>
     </table>
-    <script > 
+    <script> 
         async function add_data_to_table(){
-            const res = await fetch("https://dummyjson.com//product");
-            const data = await res.json();
-            const products = data.products;
-            const el = document.querySelector("#products > tbody");
-            products.forEach(item => {
-                el.innerHTML += `<td>${item.title}</td> 
-                <td>${item.category}</td> 
-                <td>${item.stock}</td>
-                <td>${item.price}</td>
-                `;
-            });
-
+            try{
+                const res = await fetch("https://dummyjson.com/product");
+                const data = await res.json();
+                const products = data.products;
+                const el = document.querySelector("#products > tbody");
+                products.forEach(item => {
+                        el.innerHTML += `<tr>
+                        <td>${item.title}</td> 
+                        <td>${item.category}</td> 
+                        <td>${item.stock}</td>
+                        <td>${item.price}</td>
+                        </tr>`
+                    });
+                }
+            catch(err)
+            {
+                console.log("error = ", err);
+            }
         }
+    
         add_data_to_table();
     </script>
 </body>
