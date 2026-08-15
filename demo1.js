@@ -17,6 +17,6 @@ const student = {
 // const age = student.age;
 
 //object destructuring
-const {name, age} = student;
-console.log("name = ", name);
+const {name:n, age} = student;
+console.log("name = ", n);
 console.log("age = ", age);
