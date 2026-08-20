@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>DOM Demo</title>
+        <script>
+            function add(){
+                const para = document.createElement("p");
+                para.innerText = "This is a paragraph";
+                const parent = document.getELementById("root");
+                parent.appendChild(para);
+            }
+        </script>
+	</head>
+    
+	<body>
+        <h1><center>DOM Demo</center></h1>    
+        <button onclick="add()" >ADD PARA</button>
+        <div id="root">
+        </div>
+	</body>
+</html>

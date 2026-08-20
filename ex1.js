@@ -7,5 +7,5 @@
 // }
 
 // equivalent arrow function to the above function
-const add = (a,b) => a + b;
+const add = (a,b) => a+b;                       // if you put function body in { } return statement is mandatory
 console.log("sum = ", add(20,20));
