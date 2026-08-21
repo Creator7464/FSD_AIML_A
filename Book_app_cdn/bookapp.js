@@ -16,8 +16,20 @@ const cart = [];
 
 function addtocart(props)
 {
+    
     cart.push(props);
     alert("Book added to cart successfully");
+}
+
+function viewcart()
+{
+    console.log("inside viewcart");
+    if (cart.length == 0)
+    {   
+        const h2 = React.createElement("h1",{},"cart is empty");
+        const root = ReactDOM.createRoot(document.getElementById("cart"));
+        root.render(h2);
+    }
 }
 
 const bookstore = bookdata.map((b) => book(b));
