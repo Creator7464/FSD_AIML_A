@@ -1,0 +1,20 @@
+so how we build this app is the older approach, nowadays developers doesn't handle the jsx script this way.
+
+browser only understand html, css, and js, it doesn't understand jsx, babel handles the task of converting jsx into browser understanble js.
+limitation of this approach:
+-> slow and not suitable for production:
+        babel is tanspiling the script on the browser, no precompilation, this makes our application slow.
+ -> no acutal support of module environment, all the import statement you use, those scripts need to added to global environment.
+        ex:
+            writing import React from "react" is equivalent to
+            React = window.react    (window is global execution context)
+
+            that's how babel interprets import statement in older approaches.
+          all the function or variable from other scripts, a jsx script is importing should be available globally.
+
+-> due to no module support, risk of name clash is high, makes maintaining the scripts difficult.
+
+SOLUTION TO ALL THESE BOTTLENECKS:
+BUNDLERS :- Webpack, CRA
+
+clears all the bottlenecks, the older ways have.
