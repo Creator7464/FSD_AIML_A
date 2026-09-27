@@ -1,4 +1,14 @@
 
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.index
+{
+    width: 100vw;
+}
 .header
 {
     height: 10vh;
@@ -12,6 +22,9 @@
 }
 .footer
 {
+    position: fixed;
+    bottom: 2px;
+    width: 100vw;
     background-color: rgb(24, 1, 1);
     color: white;
     font-size: 11px;
@@ -29,6 +42,12 @@
     font-weight: bold;
     font-size: 19px;
 }
+.navbar a
+{
+    text-decoration: none;
+    
+    
+}
 
 .home
 {
@@ -45,13 +64,13 @@
 .card
 {
     border: none;
-    background: linear-gradient(to top ,rgb(196, 130, 157),rgba(201, 89, 151, 0.9), rgba(216, 133, 157, 0.447) );
+    background: linear-gradient(to top ,rgb(130, 177, 196),rgba(155, 84, 199, 0.9), rgba(216, 133, 157, 0.447) );
     border-radius: 20px;
     width: 200px;
-    height: 190px;
     color: beige;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     justify-content: center;
     align-items: center;
     padding: 2px;
@@ -69,4 +88,13 @@
 {
     width: 60%;
     object-fit: contain;
+}
+
+.btn
+{
+    border-radius: 6px;
+    height: 20px;
+    width: 20px;
+    border: transparent;
+    color: rgb(83, 9, 9);
 }
