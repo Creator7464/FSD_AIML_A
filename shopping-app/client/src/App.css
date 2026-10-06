@@ -58,6 +58,7 @@
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: flex-start;
     padding: 10px;
 }
 
@@ -70,12 +71,13 @@
     color: beige;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
     justify-content: center;
     align-items: center;
     padding: 2px;
     margin: 2px;
 }
+
+
 
 .card button
 {
