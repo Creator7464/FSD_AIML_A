@@ -1,13 +1,7 @@
 import React from 'react'
 import Items from './Items'
 import { useState,useEffect } from 'react'
-let items = [
-  {images: [null], title: "React", price: "₹ 347"},
-   {images: [null], title: "Java", price: "₹ 457"},
-    {images: [null], title: "Python", price: "₹ 450"},
-     {images: [null], title: "C++", price: "₹ 880"},
-     {images: [null], title: "Node js", price: "₹ 789"}
-];
+let items = [];
 
 const ItemStore = () => {
 
@@ -34,12 +28,16 @@ const ItemStore = () => {
     retrieve();
   },[]);
 
+ 
+
   return (
     <div className = "home">
       {
-
+        
         items.map((i, index) => {return <Items key = {index} props = {i}/>})
+        
       }
+     
     </div>
   )
 }

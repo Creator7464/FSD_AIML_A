@@ -1,27 +1,34 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-
+import {useNavigate} from 'react-router-dom';
+import usercontext from '../components/UserContext';
+import { useContext } from 'react';
 const Login = () => {
-    const[uname, setuname] = useState("");
+    const {uname, setuname} = useContext(usercontext);
     const[psswd, setpsswd] = useState("");
+   const navigate=useNavigate();
+    
 
     function validate(e)
     {
-        if (uname == "admin" || uname == "user")
+        e.preventDefault();
+        if (uname == "admin" && psswd == "123")
         {
-            console.log(`welcome ${uname}`);
+            navigate("/admin");
+        }else if(psswd == "1234"){
+            navigate("/user");
         }
         else
         {
-            e.preventDefault();
-            alert("credentials not found");
+           navigate("/*");
         }
     }
 
   return (
     <div className = "login">
+        
         <form onSubmit = {(event) =>validate(event)}>
-            <h1>LOGIN FORM</h1>
+            <h1>SIGN IN HERE</h1>
             <label>
                 UserName
                 <br />
@@ -36,10 +43,10 @@ const Login = () => {
                 onChange = {(event) => setpsswd(event.target.value)}/>
             </label>
             <br />
-            <button type = "submit">Submit</button>
+            <button type = "submit">Sign in</button>
             <button type = "reset">Reset</button>
         </form>
-      
+
     </div>
   )
 }

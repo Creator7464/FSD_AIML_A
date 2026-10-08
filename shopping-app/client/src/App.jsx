@@ -6,27 +6,30 @@ import React from 'react'
 import { BrowserRouter , Routes , Route } from 'react-router-dom'
 import ItemStore from './components/ItemStore'
 import Stopwatch from './components/Stopwatch'
-import Login from './components/Login'
-
+import Login from './pages/Login'
+import usercontext from './components/UserContext'
 const App = () => {
 
-
+  const[uname, setuname] = useState("");
 
   return (
     <div className = "index">
       <BrowserRouter>
+      <usercontext.Provider value = {{uname, setuname}}>
       <Routes>
-        <Route path="/" element={<UserLayout/>}>
-        <Route index element = {<ItemStore/>}/>
-        <Route path="/mycart" element={<h1>Cart</h1>}/>
-        <Route path="/myorders" element={<h1>Orders</h1>}/>
-        <Route path="/settings" element={<h1>Settings</h1>}/>
-        <Route path="/myprofile" element={<h1>Profile</h1>}/>
-        <Route path="/login" element={<Login/>}/>
+        <Route path="/" element={<Login/>}/>
+        <Route path = "/admin" element = {<h1>Admin</h1>}></Route>
         <Route path = "/stopwatch" element = {<Stopwatch/>}/>
-        <Route path = "*" element = {<h1>Error: Page not found</h1>}/>
+        <Route path="/user" element={<UserLayout/>}>
+        <Route index element = {<ItemStore/>}/>
+        <Route path="/user/cart" element={<h1>Orders</h1>}/>
+        <Route path="/user/settings" element={<h1>Settings</h1>}/>
+        <Route path="/user/myprofile" element={<h1>Profile</h1>}/>
         </Route>
+        <Route path = "*" element = {<h1>Error: Page not found</h1>}/>
+       
       </Routes>
+       </usercontext.Provider>
       </BrowserRouter>
     </div>
   )

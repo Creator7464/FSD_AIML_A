@@ -4,8 +4,12 @@ const Items = ({props}) => {
   return (
     <div className = "card">
       <img src = {props.images[0]} height = "100px" alt = "image"/>
-      <h2>Title: {props.title}</h2>
-      <h3>Price: {props.price}</h3>
+      <div className = "title">
+        <h3 >{props.title}</h3>
+      </div>
+      <div className = "price">
+        <h3>Price: {props.price}</h3>
+      </div>
       <button>Add to Cart</button>
     </div>
   )
