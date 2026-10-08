@@ -27,7 +27,7 @@ const Stopwatch = () => {
     }
   return (
     <div className = "stopwatch">
-
+        
         <h1>{Math.trunc(timer/60000)}:{(Math.trunc(timer/1000))%60}:{(timer%1000)/10}</h1>
         <button onClick = {() => 
             {

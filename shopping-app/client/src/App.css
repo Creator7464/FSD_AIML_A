@@ -11,15 +11,19 @@
 }
 .header
 {
-    height: 10vh;
+    height: 12vh;
     background-color: rgb(56, 3, 3);
     color: white;
     font-size: 20px;
     display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items:center;
+    margin-bottom:1px;
+    padding: 3px;
 
 }
+
 .footer
 {
     position: fixed;
@@ -58,30 +62,39 @@
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 5px;
     padding: 10px;
 }
 
 .card
 {
     border: none;
-    background: linear-gradient(to top ,rgb(130, 177, 196),rgba(155, 84, 199, 0.9), rgba(216, 133, 157, 0.447) );
+    background: linear-gradient(to top ,rgb(125, 92, 177),rgba(155, 84, 199, 0.9), rgba(48, 26, 67, 0.447) );
     border-radius: 20px;
     width: 200px;
+    height: 250px;
+    flex:0 1 auto;
     color: beige;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
     justify-content: center;
     align-items: center;
-    padding: 2px;
+    
+    /* flex-wrap:nowrap; */
+    /* padding: 1px; */
     margin: 2px;
+    
 }
+
 
 .card button
 {
     border: 1px transparent;
     border-radius: 4px;
     width: 100px;
+    position: relative;
+    top: 30px;
+    
 }
 
 .card img
@@ -97,4 +110,33 @@
     width: 20px;
     border: transparent;
     color: rgb(83, 9, 9);
+}
+
+.greet
+{
+    align-self:flex-start;
+}
+.title
+{
+    min-width : 0;
+    width: 50%;
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; */
+}
+.title
+{
+    align-self:center;
+}
+.title h3
+{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+.price
+{
+    position: relative;
+    top: 10px;
 }
