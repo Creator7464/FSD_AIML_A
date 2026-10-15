@@ -8,14 +8,18 @@ import ItemStore from './components/ItemStore'
 import Stopwatch from './components/Stopwatch'
 import Login from './pages/Login'
 import usercontext from './components/UserContext'
+import usercart from './components/UserCart'
+
 const App = () => {
 
   const[uname, setuname] = useState("");
+  const[ucart, setcart] = useState({});
 
   return (
     <div className = "index">
       <BrowserRouter>
       <usercontext.Provider value = {{uname, setuname}}>
+      <usercart.Provider value = {{ucart,setcart}}>
       <Routes>
         <Route path="/" element={<Login/>}/>
         <Route path = "/admin" element = {<h1>Admin</h1>}></Route>
@@ -29,6 +33,7 @@ const App = () => {
         <Route path = "*" element = {<h1>Error: Page not found</h1>}/>
        
       </Routes>
+        </usercart.Provider>
        </usercontext.Provider>
       </BrowserRouter>
     </div>
