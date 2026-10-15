@@ -87,15 +87,24 @@
 }
 
 
-.card button
+.cardbtn
 {
+
     border: 1px transparent;
     border-radius: 4px;
-    width: 100px;
+    background-color: whitesmoke;
+    color: rgba(77, 10, 40, 0.863);
+    padding: 1px;
+    max-width: 44%;
     position: relative;
     top: 30px;
+    display:flex;
+    flex:0 1;
+    gap: 7px;
+    justify-content:space-between;
     
 }
+
 
 .card img
 {

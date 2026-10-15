@@ -34,7 +34,7 @@ const ItemStore = () => {
     <div className = "home">
       {
         
-        items.map((i, index) => {return <Items key = {index} props = {i}/>})
+        items.map((i, index) => {return <Items key = {index+1} props = {i}/>})
         
       }
      
