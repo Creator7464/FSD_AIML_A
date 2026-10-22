@@ -1,12 +1,14 @@
 import React from 'react'
 import Items from './Items'
-import { useState,useEffect } from 'react'
+import { useState,useEffect,useContext } from 'react'
+import usercart from './UserCart';
+
 let items = [];
 
 const ItemStore = () => {
 
   const [count, setcount] = useState(0);
-
+  const {ucart:cart} = useContext(usercart);
   async function retrieve()
     {
       try
@@ -27,6 +29,10 @@ const ItemStore = () => {
   {
     retrieve();
   },[]);
+  useEffect(() =>
+  {
+    console.log(cart)
+  },[cart]);
 
  
 
@@ -34,7 +40,7 @@ const ItemStore = () => {
     <div className = "home">
       {
         
-        items.map((i, index) => {return <Items key = {index+1} props = {i}/>})
+        items.map((i, index) => {return <Items key = {index+1} cardid = {i.id} props = {i}/>})
         
       }
      
@@ -43,3 +49,4 @@ const ItemStore = () => {
 }
 
 export default ItemStore;
+
