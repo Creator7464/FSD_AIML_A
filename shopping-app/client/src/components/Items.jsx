@@ -2,27 +2,67 @@ import React from 'react'
 import { useState,useEffect,useContext } from 'react';
 import usercart from './UserCart';
 
-const Items = ({key, props}) => {
+
+const Adcbtn = ({setter: setquant}) => {
+  return (
+    <div className = "cardbtn">
+      <button onClick = {() =>setquant((v) => v + 1)}><h5 id = "adc">ADD TO CART</h5></button>
+    </div>
+  )
+}
+
+
+
+const Btn = ({change, setter: setquant}) => {
+  return (
+    <div className = "cardbtn">
+      <button onClick = {() => setquant((v) => v + 1)}><h4 id ="increase">+</h4></button>
+      <h3>{change}</h3>
+      <button onClick = {() => setquant((v) => v - 1) }><h4 id = "decrease">-</h4></button>
+    </div>
+  )
+}
+
+
+
+
+const Items = ({cardid:key, props}) => {
   const [quant, setquant] = useState(0);
   const {ucart:cart, setcart} = useContext(usercart);
   
   function update(event)
   {
-    let prodno = event.currentTarget.id;
-    if (event.target.id === "increase")
+    const prodno = event.currentTarget.id;
+
+    console.log(event.target.id);
+    if (event.target.id == "increase")
     {
-      if (prodno in cart)
+       
+        const obj = {[prodno]: {...(cart[prodno]),...{quantity:cart[prodno].quantity + 1}}};
+        setcart({...cart, ...obj});
+    }
+    else if (event.target.id == "adc")
+    {
+      // const {title:t,image:img, price:p} = props;
+      const obj = {[prodno]: {title: props.title, image:props.image, price:props.price, quantity: 1}};
+      setcart({...cart,...obj})
+    }
+    else
+    {
+      if (prodno in cart && cart[prodno].quantity > 1)
       {
-        const obj = {prodno: {...(c.prodno),quantity: c.prodno.quantity + 1}};
-        setcart((c) => ({...c, obj}));
+        const obj = {[prodno]: {...(cart[prodno]), quantity: cart[prodno].quantity - 1}};
+        setcart({...cart, ...obj})
 
       }
-      // else
-      // {
-      //   setcart((c) => ({...c, {}}))
-      // }
-
+      else
+      {
+        const {[prodno]:p, ...obj} = cart;
+        setcart(...obj);
+      }
+      
     }
+
   }
 
   return (
@@ -34,12 +74,9 @@ const Items = ({key, props}) => {
       <div className = "price">
         <h3>Price: {props.price}</h3>
       </div>
-      <div className = "cardbtn">
-        {quant != 0? <button onClick = {() => setquant((v) => v - 1)} id = "decrease"><h4>-</h4></button>:""}
-        {quant == 0?<h5>Add to cart</h5>:<h4>{quant}</h4>}
-
-        <button onClick = {() => setquant((v) => v + 1)} id = "increase"><h4>+</h4></button>
-        </div>
+      {
+        (quant == 0)?<Adcbtn setter = {setquant}/>:<Btn change = {quant} setter = {setquant}/>
+      }
       
     </div>
   )
