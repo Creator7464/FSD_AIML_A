@@ -29,13 +29,7 @@ const ItemStore = () => {
   {
     retrieve();
   },[]);
-  useEffect(() =>
-  {
-    console.log(cart)
-  },[cart]);
-
- 
-
+  
   return (
     <div className = "home">
       {
